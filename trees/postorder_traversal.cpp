@@ -35,6 +35,7 @@ vector<int> postorderTraversal(TreeNode* root) {
 
 // TC = O(N)
 // SC = O(N)
+// this is just a check --ignore
 
 
 vector<int> postorderTraversal(TreeNode* root) {
