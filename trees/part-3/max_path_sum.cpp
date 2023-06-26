@@ -5,6 +5,7 @@
 // If it is, then take zero instead. Handle the corner case where tree has only negative nodes.
 // at every iteration of the left and right, return root -> val + max(l,r);
 
+// dummy change 
 
 int maxPathSum(TreeNode* root) {
     int val = INT_MIN;
