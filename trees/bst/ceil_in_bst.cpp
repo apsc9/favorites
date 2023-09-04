@@ -29,4 +29,5 @@ int findCeil(Node* root, int input) {
     // Your code here
 }
 
-//TC = O(nlogn) as this is a BST
+//TC = O(logn) as this is height of BST 
+// SC = O(1) as no extra space is used
