@@ -50,4 +50,4 @@ void reorder(TreeNode* root){
 }
 
 // TC = O(N) as all the nodes are traversed atleast once
-// SC = O(N) due to recursion stack 
+// SC = O(N) due to recursion stack
