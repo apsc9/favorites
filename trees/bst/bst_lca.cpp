@@ -7,6 +7,7 @@
 
 // TC = O(height) height of the bst is what we have to traverse while search
 // SC = O(N) auxilary space
+
 TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
     if (root == NULL) return root;
     int curr = root -> val;
