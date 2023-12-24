@@ -20,6 +20,10 @@ int orangesRotting(vector<vector<int>>& grid) {
         }
     }
     
+    if (fresh == 0) 
+        return cnt ; // covers the case when there are no(rotten)? oranges present
+
+
     vector<vector<int>>dir = {{1,0},{0,-1},{-1,0},{0,1}};
     while(!q.empty()){
         int sz = q.size();
