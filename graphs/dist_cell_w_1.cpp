@@ -1,3 +1,6 @@
+// Problem link : https://leetcode.com/problems/01-matrix/description/
+// https://practice.geeksforgeeks.org/problems/distance-of-nearest-cell-having-1-1587115620/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=distance-of-nearest-cell-having-1
+
 // The idea is to use bfs for the problem tweaking it a bit
 // the only thing is now instead of going from 0 to 1 to find the distance
 // we now go from 1 to 0 , this makes it easy for us to go to various 
