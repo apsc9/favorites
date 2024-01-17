@@ -32,6 +32,43 @@ bool dfs(vector<int>adj[], int s,vector<int>&vis, vector<int>&recSt){
     return false ;
 }
 
+// There is a way we can save extra space used above by the 
+// recSt , as we can make use of the visited array only to keep
+// track of whether a node is in the path of current recursion or not
+// and by the end of recursion , if we find that it is not
+// we just put integer value 2 in its place
+
+bool isCyclic(int V, vector<int> adj[]) {
+    vector<int>vis(V,0);
+    // to  keep track of the path in the same recursion call , we make use of int 2 
+    // int 2 will denote that the node has been visited but isnt in the path for the 
+    // current recursion call 
+    
+    for(int i = 0 ; i < V ; i++){
+        if (vis[i] == 0 && dfs(i,adj, vis))
+            return true ;
+    }
+    return false;
+}
+
+bool dfs(int s, vector<int>adj[], vector<int>&vis){
+    vis[s] = 1 ;
+    
+    for(auto u: adj[s]){
+        if (vis[u] == 0 && dfs(u,adj,vis))
+            return true;
+        else if (vis[u] == 1) // if node is vis and is already a part of the path, yes cyc
+            return true;
+    }
+    
+    // when all the adj nodes are traversed and still no cycle is found that contains that
+    // node as a part of the cycle, then remove that node from the path list
+    // we do that by putting int 2 in the visited array
+    
+    vis[s] = 2 ;
+    return false ;
+}
+
 // TC = O(V+E)
 // SC = O(V) , for recursion stack as well the depth of the tree
 
