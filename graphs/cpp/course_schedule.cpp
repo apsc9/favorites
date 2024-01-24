@@ -1,4 +1,4 @@
-// Approach : the problem can be mapped to simply finding whether the cycle exits in a directed graph
+// !st Approach BFS: the problem can be mapped to simply finding whether the cycle exits in a directed graph
 // Based on the prerequisites, we can make adjacency list and indegree array 
 // indegree of a node indicates how many courses are prerequisites for this particular course , 
 // indegree = 0 indicated no prereuisites and hence that course can be taken, 
@@ -39,3 +39,37 @@ bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
 
 // TC = O(V+E);
 // SC = O(V);
+
+
+// 2nd approach : DFS : the same idea of finding the cycle in a directed
+// graph is applicable here as well, here we make use of dfs in order to 
+// determine whether all the courses can be taken or not 
+
+bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+    vector<int>taken(numCourses,0);
+
+    vector<vector<int>> seq(numCourses);
+    for(auto x : prerequisites){
+        seq[x[1]].push_back(x[0]);
+    }
+
+    for(int i = 0 ; i < numCourses; i++){
+        if (!taken[i] && loopon(i,seq, taken))
+            return false ;
+    }
+    return true ;
+}
+
+bool loopon(int course, vector<vector<int>>& seq, vector<int>&taken){
+    taken[course] = 1 ;
+    for (auto u : seq[course]){
+        if (!taken[u] && loopon(u, seq, taken))
+            return true;
+        else if (taken[u] == 1)
+            return true;
+    }
+
+    taken[course] = 2 ;
+    return false;
+}
+
