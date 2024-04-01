@@ -38,7 +38,7 @@ private:
             }
         }
     }
-    
+
 public:
     vector<vector<int>> criticalConnections(int n, vector<vector<int>>& connections) {
         vector<vector<int>>adj(n);
@@ -48,7 +48,8 @@ public:
         }
 
         vector<int>vis(n,0);
-        vector<int>tin(n) , low(n);
+        vector<int>tin(n) ; // stores the time of insertion during dfs
+        vector<int>low(n); // min of all the adjacent nodes except the parent 
         vector<vector<int>>ans ;
         dfs(0,-1,low, tin, vis, ans, adj);
         return ans;
